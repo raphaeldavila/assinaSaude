@@ -1,0 +1,52 @@
+.card-queixas{
+    background-color: #fff;
+    padding: 10px;
+}
+
+.card-queixas header{
+    background-color: #B3DDDC;
+    color: #3C837F;
+    padding: 8px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 15px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.form-group{
+    padding-top: 15px;
+}
+
+.form-group label{
+    text-align: left !important;
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group .form-control{
+    background-color: #F2F2F2;
+    height: 40px;
+    color: #CACACA;
+    font-weight: 500;
+}
+
+.card-queixas .btn-prontuario-queixas{
+    width: 100%;
+    background-color: #D20E50;
+    color: #fff;
+    height: 42px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.card-queixas .btn-prontuario-queixas:hover{
+    background-color: #D20E50;
+    color: #fff;
+}
+
+.card-queixas a{
+    color: #515151;
+    font-size: 12px;
+    text-decoration:none; 
+}

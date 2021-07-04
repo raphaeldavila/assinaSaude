@@ -1,0 +1,27 @@
+.card-prontuario-child{
+    background-color: #f2f2f2;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    height: 400px;
+}
+
+.card-prontuario-child p{
+    text-align: left;
+    padding-left: 15px;
+    color: #898989;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.card-prontuario-child .btn-prontuario-queixas{
+    width: 91%;
+    background-color: #D20E50;
+    color: #fff;
+    height: 42px;
+    margin-left: 15px; 
+}
+
+.card-prontuario-child .btn-prontuario-queixas:hover{
+    background-color: #D20E50;
+    color: #fff;
+}
