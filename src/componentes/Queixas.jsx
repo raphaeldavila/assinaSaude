@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
 import swal from 'sweetalert';
 import './Queixas.css';
 import { Button, Form, FormGroup, Label, Input, Badge } from 'reactstrap';
@@ -19,8 +19,10 @@ export default (props) => {
 
     const [stateQueixas, setQueixas] = useState(initialValue);
     const [stateDoencas, setDoencas] = useState(initialValue);
+    const [stateDoencasBadge, setDoencasBadge] = useState([{id: 0, label: 'teste'}]);
 
     const arrayDoenca = [];
+    const todosDoencas = [];
 
     useEffect(() => {
         axios.get('https://assina-prontuario.herokuapp.com/queixas')
@@ -32,18 +34,15 @@ export default (props) => {
         .then(function (response) {
             setDoencas(response.data.data);
         });
-    }, []);
+    }, []); 
 
-    function removeTag(id){
-        document.getElementById('doenca-' + id).remove();
-        const index = arrayDoenca.indexOf(id);
-        if (index > -1) {
-            arrayDoenca.splice(index, 1);
-        }
+    function removerTag(){
+        alert('tetse');
     }
 
     function handleChange(e) {
         const doenca = e.target.value;
+        
         let splitValue = doenca.split("-");
         let idValue =  splitValue[0];
         let labelValue =  splitValue[1];
@@ -51,13 +50,31 @@ export default (props) => {
         let countDoenca = document.getElementById('doenca-' + idValue);
         if(countDoenca == null){    
             arrayDoenca.push(idValue);
+
+            const objetoDoenca = {
+                id: idValue,
+                label: labelValue
+            };
+
+            todosDoencas.push(objetoDoenca);
+
+            setDoencasBadge(todosDoencas);
+
             const tagDoencas = document.getElementById('tags-doencas');
-            const element = document.createElement('div');
-            element.setAttribute("class", "badge");
-            element.setAttribute("id", "doenca-" + idValue);
-            element.textContent = labelValue + '  x';
-            tagDoencas.appendChild(element);
+
+
+
+
+            // const element = document.createElement('div');
+            // element.setAttribute("class", "badge badge-queixas");
+            // element.setAttribute("id", "doenca-" + idValue);
+            // element.textContent = labelValue + '  x';
+            // tagDoencas.appendChild(element );
         }
+    }
+
+    function adicionarTag(){
+        <div class='badge badge-queixas'></div>
     }
 
     const onSubmit = (data) => {
@@ -87,7 +104,7 @@ export default (props) => {
         axios.post('https://assina-prontuario.herokuapp.com/prontuario', dadosPost)
         .then(function (response) {
             swal("Sucesso", "Uhuul! Prontuário cadastrado com sucesso. Aguarde você será redirecionado para a tela de prontuários.", "success");
-            localStorage.setItem("dadosProntuario", JSON.stringify(response.data));
+            localStorage.setItem("@assina-saude/dadosProntuario", JSON.stringify(response.data));
             setTimeout(function(){
                 history.push('/');
             }, 4000);
@@ -121,7 +138,9 @@ export default (props) => {
 
                 <FormGroup>
                     <Label for="historicoMolestia">Selecionados</Label>
-                    <div id="tags-doencas"></div>
+                    <div id="tags-doencas">
+                        {adicionarTag}
+                    </div>
                 </FormGroup>
 
                 <FormGroup>

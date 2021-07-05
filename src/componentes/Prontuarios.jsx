@@ -8,12 +8,8 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 export default (props) => {
 
-    const dadosArmazenados = localStorage.getItem("dadosProntuario");
+    const dadosArmazenados = localStorage.getItem("@assina-saude/dadosProntuario");
     const dadosLocal = JSON.parse(dadosArmazenados);    
-    const dataFormata = dateFormat(dadosLocal.created_at, "dd");
-    const mesFormata = dateFormat(dadosLocal.created_at, "mmm");
-    const anoFormata = dateFormat(dadosLocal.created_at, "yyyy");
-    const horaFormata = dateFormat(dadosLocal.created_at, "HH:MM");
 
     function vazio(){
         return (
@@ -22,6 +18,12 @@ export default (props) => {
     }
 
     function dados(){
+
+        const dataFormata = dateFormat(dadosLocal.created_at, "dd")  ;
+        const mesFormata = dateFormat(dadosLocal.created_at, "mmm");
+        const anoFormata = dateFormat(dadosLocal.created_at, "yyyy") ;
+        const horaFormata = dateFormat(dadosLocal.created_at, "HH:MM");
+
         return(
             <div className="row">
                 <div className="col-md-12">
