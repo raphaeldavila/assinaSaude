@@ -25,8 +25,8 @@
 
 .form-group .form-control{
     background-color: #F2F2F2;
-    height: 40px;
-    color: #CACACA;
+    /* height: 40px; */
+    color: #6C757D;
     font-weight: 500;
 }
 
@@ -49,4 +49,13 @@
     color: #515151;
     font-size: 12px;
     text-decoration:none; 
+}
+
+.badge{
+    background-color: #B3DDDD;
+    padding: 8px;
+    border-radius: 50px;
+    margin-right: 10px;
+    color: #000 !important;
+    cursor: pointer;
 }
