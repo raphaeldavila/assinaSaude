@@ -1,8 +1,9 @@
 import React, {useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import swal from 'sweetalert';
 import './Queixas.css';
 import { Button, Form, FormGroup, Label, Input, Badge } from 'reactstrap';
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, useHistory} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from "react-hook-form";
@@ -11,6 +12,7 @@ export default (props) => {
 
     const axios = require('axios');
     const { register, handleSubmit } = useForm();
+    const history = useHistory();
 
     const initialValue = [
         { id: 0, value: "Selecione ... " }];
@@ -32,6 +34,13 @@ export default (props) => {
         });
     }, []);
 
+    function removeTag(id){
+        document.getElementById('doenca-' + id).remove();
+        const index = arrayDoenca.indexOf(id);
+        if (index > -1) {
+            arrayDoenca.splice(index, 1);
+        }
+    }
 
     function handleChange(e) {
         const doenca = e.target.value;
@@ -46,12 +55,13 @@ export default (props) => {
             const element = document.createElement('div');
             element.setAttribute("class", "badge");
             element.setAttribute("id", "doenca-" + idValue);
-            element.textContent = labelValue;
+            element.textContent = labelValue + '  x';
             tagDoencas.appendChild(element);
         }
     }
 
     const onSubmit = (data) => {
+        
         let allDoencas = arrayDoenca;
         if(data.queixas == undefined){
             swal("É necessário selecionar uma queixa.");
@@ -76,7 +86,11 @@ export default (props) => {
 
         axios.post('https://assina-prontuario.herokuapp.com/prontuario', dadosPost)
         .then(function (response) {
-            swal("Sucesso", "Uhuul! Prontuário cadastrado com sucesso.", "success");
+            swal("Sucesso", "Uhuul! Prontuário cadastrado com sucesso. Aguarde você será redirecionado para a tela de prontuários.", "success");
+            localStorage.setItem("dadosProntuario", JSON.stringify(response.data));
+            setTimeout(function(){
+                history.push('/');
+            }, 4000);
         })
         .catch(function (error) {
             swal("Erro", "Não foi possível realizar seu prontuário. Tente novamente mais tarde!", "error");
@@ -118,7 +132,6 @@ export default (props) => {
                 <Button className="btn btn-prontuario-queixas">Salvar</Button>
 
                 <Link to="/"> <FontAwesomeIcon icon={faArrowLeft} /> Voltar para prontuários</Link>
-
             </Form>
         </div>
     )
