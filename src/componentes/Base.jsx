@@ -8,8 +8,8 @@ export default (props) => {
     return(
         <div className="container">
             <div className="row row-prontuario">
-                <div className="col-md-4"></div>
-                <div className="col-md-4">
+                <div className="col-sm-12 col-md-4 col-lg-4"></div>
+                <div className="col-sm-12 col-md-4 col-lg-4">
                     <Router>
                         <Switch>
                             <Route path="/queixas">
@@ -25,7 +25,7 @@ export default (props) => {
                         </Switch>
                     </Router>
                 </div>
-                <div className="col-md-4"></div>
+                <div className="col-sm-12 col-md-4 col-lg-4"></div>
             </div>
         </div>
     )

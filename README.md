@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Projeto | Dev Assina Saúde 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse projeto teve como objetivo realizar a construção visual de um prontuário eletrônico, integrado com uma API com ações de GET e POST. Para maiores especificações clique no projeto raiz [Projeto Assina Saúde](https://github.com/assinasaude/prontuario-frontend/).
 
-## Available Scripts
+## Prós
 
-In the project directory, you can run:
+Devido ao uso em alguns projetos paralelos, a criação desse teste baseado em REACT foi um ponto confortável. Além do template prático e simples de ser montado.
+
+## Contras
+
+O tempo foi o fator de maior dificuldade, basicamente tive 1 dia disponível para criar o projeto, em função de que atualmente trabalho em outra companhia.
+
+## Vamos rodar o projeto
+
+### `npm install`
+
+Esse comando instalará todas as dependencias necessárias para executar o projeto.
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O npm start inicializará o server através de um porta disponível.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `aguarde`
 
-### `npm test`
+Pronto agora você está com o projeto em execução.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## O que foi feito e o que faltou fazer
 
-### `npm run build`
+### `Feito`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- O front foi feito com base no modelo apresentado no [Projeto Assina Saúde](https://github.com/assinasaude/prontuario-frontend/), com pequenas modificações e adaptações para que eu pudesse finalizar o teste dentro do prazo exigido.
+- Toda a parte lógica que um prontuário eletrônico necessita.
+- Fiz algumas implementações, como por exemplo o uso do "SWAL" para trazer um efeito diferente ao concluir o envio do prontuário a API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `Não Feito`
+- Poucas coisas faltaram no projeto, porém pequenos detalhes de css não consegui demandar tempo. (Conforme explicado acima).
+- Testes Unitários
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `Funcionalidade | Exclusão das tags`
+- Não consegui realizar. Criei a lógica baseado no setAttribute('onclick', nome_funcao) porém por algum motivo não me retornou da maneira esperada. Mais uma vez o fator tempo impactou pesquisar e ir mais a fundo na resolução desse problema. Não tenho dúvida que consegueria com mais um pouquinho de tempo.

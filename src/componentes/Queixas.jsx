@@ -22,7 +22,7 @@ export default (props) => {
     const [stateDoencasBadge, setDoencasBadge] = useState([{id: 0, label: 'teste'}]);
 
     const arrayDoenca = [];
-    const todosDoencas = [];
+    const todosDoencas = [{id: 0, label: 'teste'}];
 
     useEffect(() => {
         axios.get('https://assina-prontuario.herokuapp.com/queixas')
@@ -34,11 +34,8 @@ export default (props) => {
         .then(function (response) {
             setDoencas(response.data.data);
         });
-    }, []); 
 
-    function removerTag(){
-        alert('tetse');
-    }
+    }, []); 
 
     function handleChange(e) {
         const doenca = e.target.value;
@@ -57,24 +54,14 @@ export default (props) => {
             };
 
             todosDoencas.push(objetoDoenca);
-
-            setDoencasBadge(todosDoencas);
-
+            
             const tagDoencas = document.getElementById('tags-doencas');
-
-
-
-
-            // const element = document.createElement('div');
-            // element.setAttribute("class", "badge badge-queixas");
-            // element.setAttribute("id", "doenca-" + idValue);
-            // element.textContent = labelValue + '  x';
-            // tagDoencas.appendChild(element );
+            const element = document.createElement('div');
+            element.setAttribute("class", "badge badge-queixas");
+            element.setAttribute("id", "doenca-" + idValue);
+            element.textContent = labelValue + '  x';
+            tagDoencas.appendChild(element );
         }
-    }
-
-    function adicionarTag(){
-        <div class='badge badge-queixas'></div>
     }
 
     const onSubmit = (data) => {
@@ -139,7 +126,6 @@ export default (props) => {
                 <FormGroup>
                     <Label for="historicoMolestia">Selecionados</Label>
                     <div id="tags-doencas">
-                        {adicionarTag}
                     </div>
                 </FormGroup>
 
